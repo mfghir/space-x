@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 
-// import logoSvg from "./../../assets/logo.svg";
-// import logoPng from "../../assets/logo-dark";
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,15 +8,16 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const [isFixed, setIsFixed] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 150) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
+      const currentScrollPos = window.pageYOffset;
+      const isVisible = prevScrollPos > currentScrollPos;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(isVisible);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -27,17 +25,16 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [prevScrollPos]);
 
   return (
     <section
-      className={`${styles.navbar_container}  ${
-        isFixed ? styles.menu_fixed : ""
-      }`}
+      className={`${styles.navbar_container}  
+      ${visible ? styles.menu_visible : styles.menu_hidden}
+      `}
     >
       <figure className={styles.navbar_img}>
-        {/* <img src={logoSvg} alt="logo" /> */}
-        <img src="../../assets/logo-dark.jpg" alt="logo" />
+        <img src="./logo.png" alt="logo" />
       </figure>
 
       <ul className={styles.menu}>

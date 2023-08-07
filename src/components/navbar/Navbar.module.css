@@ -12,13 +12,11 @@
     position: fixed;
 
     top: 0;
-    background: #000;
     transition: .4s;
 }
 
 .navbar_img {
-    width: 100%;
-    width: auto;
+    width: 200px;
     margin: 0 auto;
 }
 
@@ -185,6 +183,16 @@
     background: #000;
 }
 
+/* Show the menu */
+.menu_visible {
+    display: flex;
+    background: #000;
+}
+
+/* Hide the menu */
+.menu_hidden {
+    display: none;
+}
 
 
 
@@ -261,6 +269,10 @@
     .sidebar>li:nth-of-type(7),
     .sidebar>li:nth-of-type(8) {
         display: none;
+    }
+
+    .menu_visible {
+        display: flex;
     }
 }
 
