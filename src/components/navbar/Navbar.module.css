@@ -27,13 +27,9 @@
 
 
 
-
 .menu {
     display: none;
 }
-
-
-
 
 
 
@@ -179,19 +175,19 @@
 }
 
 
-.menu_fixed {
-    background: #000;
-}
-
 /* Show the menu */
 .menu_visible {
     display: flex;
     background: #000;
+    transition: .4s;
+
 }
 
 /* Hide the menu */
 .menu_hidden {
     display: none;
+    transition: .4s;
+
 }
 
 
@@ -208,9 +204,6 @@
         justify-content: space-between;
     }
 
-    .menu_fixed {
-        background: #000;
-    }
 
     .menu {
         display: flex;
@@ -273,7 +266,16 @@
 
     .menu_visible {
         display: flex;
+        transition: .4s;
+        background: #000;
     }
+
+    .menu_hidden {
+        background: transparent;
+
+
+    }
+
 }
 
 @media only screen and (min-width: 1200px) {
