@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Oswald', Arial, Verdana, sans-serif;
+
+}
+
+.App{
+  background: #000;
+}
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (min-width: 1200px) {}
